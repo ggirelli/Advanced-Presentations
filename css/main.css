@@ -7,6 +7,28 @@
 	width: 300px;
 
 	background-color: #989898;
+
+	overflow-y: scroll;
+}
+
+#left-bar .wrap {
+	display: block;
+
+	margin: 1em auto;
+
+	width: 250px;
+	height: 175px;
+
+	text-align: center;
+}
+
+#left-bar .thumbnail {
+	display: block;
+
+	margin: 0 auto;
+
+	max-width: 250px;
+	max-height: 175px;
 }
 
 #bottom-bar {

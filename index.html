@@ -14,7 +14,13 @@
 </head>
 <body ng-app="advPre" ng-controller="interfaceController as ictrl" ng-model="ictrl">
 	
-	<div id="left-bar"></div>
+	<div id="left-bar">
+		
+		<div ng-repeat="image in imageList" class="wrap">
+			<a href="" ng-click=""><img src="{{image}}" alt="{{image}}" class="thumbnail" /></a>
+		</div>
+
+	</div>
 
 	<div id="bottom-bar">
 		

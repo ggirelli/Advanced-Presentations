@@ -3,7 +3,7 @@
 angular.module('advPre', ['ngAnimate'])
 
 	.controller('interfaceController',
-		function($scope) {
+		function($scope, $http) {
 
 			$('[data-toggle="tooltip"]').tooltip()
 
@@ -45,7 +45,15 @@ angular.module('advPre', ['ngAnimate'])
 			 * @return NULL
 			 */
 			$scope.refresh_image_list = function () {
-				console.log('refresh');
+				$http({
+
+					method: 'POST',
+					url: 'image-list.php'
+
+				})
+					.success(function (data) {
+						$scope.imageList = data['list'];
+					});
 			}
 
 		}
