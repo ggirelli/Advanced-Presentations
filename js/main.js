@@ -13,8 +13,15 @@ angular.module('advPre', ['ngAnimate'])
 			 */
 			$scope.opened = false;
 
+			/**
+			 * Slide sequence
+			 * @type {Array}
+			 */
 			$scope.imageList = [];
+			$scope.indexList = [];
 
+			$scope.currentIndex = -1;
+			$scope.currentZoom = 1;
 
 			/**
 			 * Whether the slider is open
@@ -29,7 +36,7 @@ angular.module('advPre', ['ngAnimate'])
 			$scope.open = function () {
 				$scope.opened = true;
 			    $scope.slider = window.open('slider.html','slider','modal=yes,alwaysRaised=yes,location=0,menubar=0,resizable=0,fullscreen=1');
-			}
+			};
 
 			/**
 			 * Closes the slider
@@ -37,8 +44,10 @@ angular.module('advPre', ['ngAnimate'])
 			 */
 			$scope.close = function () {
 				$scope.opened = false;
+				$scope.currentIndex = -1;
+				$scope.currentZoom = 0;
 				$scope.slider.close();
-			}
+			};
 
 			/**
 			 * Refreshes the list of images
@@ -53,8 +62,17 @@ angular.module('advPre', ['ngAnimate'])
 				})
 					.success(function (data) {
 						$scope.imageList = data['list'];
+						$scope.indexList = range(0, data['list'].length);
 					});
-			}
+			};
+
+			/**
+			 * Sets the current slide
+			 * @param {integer} i The index of the slide
+			 */
+			$scope.setSlide = function (i) {
+				$scope.currentIndex = i;
+			};
 
 		}
 	);
