@@ -1,0 +1,104 @@
+#left-bar {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	top: 0;
+
+	width: 300px;
+
+	background-color: #989898;
+}
+
+#bottom-bar {
+	position: fixed;
+	bottom: 0;
+	left: 300px;
+	right: 0;
+
+	height: 60px;
+
+	padding-left: 1em;
+
+	background: #dadada;
+}
+
+#bottom-bar .space {
+	display: inline-block;
+	width: 3em;
+}
+
+#preview {
+	position: fixed;
+	bottom: 60px;
+	left: 300px;
+	right: 0;
+	top: 0;
+
+	padding-bottom: 1em;
+
+	background: #dadada;
+}
+
+/** buttons **/
+
+.btn {
+	border-radius: 6px;
+	font-size: 1.3em;
+}
+
+.btn:hover {
+	color: white;
+	border-bottom-width: 1px;
+}
+
+.btn-circle {
+	margin: 5px;
+	margin-right: 0px;
+
+	height: 50px;
+	width: 50px;
+
+	border-radius: 25px;
+}
+
+.btn-aqua {
+	background-color: rgb(16, 156, 126);
+	color: white;
+	border: 1px solid rgb(13, 135, 110);
+	border-bottom-width: 4px;
+}
+
+.btn-light-aqua {
+	background-color: rgb(100, 201, 155);
+	color: white;
+	border: 1px solid rgb(87, 181, 138);
+	border-bottom-width: 4px;
+}
+
+.btn-reddish {
+	background-color: rgb(232, 78, 48);
+	color: white;
+	border: 1px solid rgb(212, 71, 44);
+	border-bottom-width: 4px;
+}
+
+.btn-sky {
+	background-color: rgb(115, 195, 240);
+	color: white;
+	border: 1px solid rgb(88, 176, 235);
+	border-bottom-width: 4px;
+}
+
+.btn-gold {
+	background-color: rgb(255,184,95);
+	color: white;
+	border: 1px solid rgb(255,158,82);
+	border-bottom-width: 4px;
+}
+
+.btn-gray {
+	background-color: #cacaca;
+	color: white;
+	border: 1px solid #bababa;
+	border-bottom-width: 4px;
+}

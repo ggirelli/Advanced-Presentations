@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Advanced Presentations</title>
+
+	<link rel="stylesheet" href="vendor/css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="vendor/js/jquery.min.js"></script>
+	<script src="vendor/js/bootstrap.min.js"></script>
+	<script src="vendor/js/angular.js"></script>
+	<script src="vendor/js/angular-animate.min.js"></script>
+</head>
+<body ng-app="advPre" ng-controller="interfaceController as ictrl" ng-model="ictrl">
+	
+	<div id="left-bar"></div>
+
+	<div id="bottom-bar">
+		
+		<button class="btn btn-circle btn-reddish" data-toggle="tooltip" data-placement="top" title="Apri presentazione" ng-click="open()" ng-show="!isOpen()"><span class="glyphicon glyphicon-eye-open"></span></button>
+		<button class="btn btn-circle btn-reddish" data-toggle="tooltip" data-placement="top" title="Chiudi presentazione" ng-click="close()" ng-show="isOpen()"><span class="glyphicon glyphicon-eye-close"></span></button>
+
+		<button class="btn btn-circle btn-sky" data-toggle="tooltip" data-placement="top" title="Aggiorna coda immagini" ng-click="refresh_image_list()"><span class="glyphicon glyphicon-refresh"></span></button>
+
+		<span class="space">&nbsp;</span>
+
+		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine precedente" ng-disabled="!isOpen()"><span class="glyphicon glyphicon-chevron-left"></span></button>
+
+		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Prossima immagine" ng-disabled="!isOpen()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+
+	</div>
+
+	<div id="preview"></div>
+
+	<!-- after everything loaded -->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
