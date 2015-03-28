@@ -76,5 +76,15 @@ angular.module('advPre', ['ngAnimate'])
 				}
 			};
 
+			/**
+			 * Sets the current slide based on user-input
+			 */
+			$scope.promptSetSlide = function () {
+				i = parseInt(prompt('Inserisci il numero della slide:'))
+				if ( 0 <= $scope.indexList.indexOf(i) ) {
+					$scope.currentIndex = i;
+				}
+			}
+
 		}
 	);

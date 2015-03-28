@@ -34,7 +34,7 @@
 
 		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine precedente" ng-disabled="!isOpen()" ng-click="setSlide(currentIndex-1)"><span class="glyphicon glyphicon-chevron-left"></span></button>
 
-		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine attuale" ng-disabled="!isOpen()" ng-click="">
+		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine attuale" ng-disabled="!isOpen()" ng-click="promptSetSlide()">
 			<span ng-if="currentIndex < 0">#</span>
 			<span ng-if="currentIndex >= 0">{{currentIndex}}</span>
 		</button>
