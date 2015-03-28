@@ -62,7 +62,7 @@ angular.module('advPre', ['ngAnimate'])
 				})
 					.success(function (data) {
 						$scope.imageList = data['list'];
-						$scope.indexList = range(0, data['list'].length);
+						$scope.indexList = range(0, data['list'].length-1);
 					});
 			};
 

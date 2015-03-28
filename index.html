@@ -32,14 +32,16 @@
 
 		<span class="space">&nbsp;</span>
 
-		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine precedente" ng-disabled="!isOpen()"><span class="glyphicon glyphicon-chevron-left"></span></button>
+		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine precedente" ng-disabled="!isOpen()" ng-click=""><span class="glyphicon glyphicon-chevron-left"></span></button>
 
-		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Prossima immagine" ng-disabled="!isOpen()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine attuale" ng-disabled="!isOpen()" ng-click="">{{currentIndex}}</button>
+
+		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Prossima immagine" ng-disabled="!isOpen()" ng-click=""><span class="glyphicon glyphicon-chevron-right"></span></button>
 
 	</div>
 
 	<div id="preview">
-		{{imageList[currentIndex]}}
+		<img src="{{imageList[currentIndex]}}" alt="{{imageList[currentIndex]}}" />
 	</div>
 
 	<!-- after everything loaded -->
