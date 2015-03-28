@@ -71,7 +71,9 @@ angular.module('advPre', ['ngAnimate'])
 			 * @param {integer} i The index of the slide
 			 */
 			$scope.setSlide = function (i) {
-				$scope.currentIndex = i;
+				if ( 0 <= $scope.indexList.indexOf(i) ) {
+					$scope.currentIndex = i;
+				}
 			};
 
 		}
