@@ -41,6 +41,59 @@
 
 		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Prossima immagine" ng-disabled="!isOpen()" ng-click="setSlide(currentIndex+1)"><span class="glyphicon glyphicon-chevron-right"></span></button>
 
+		<span class="space">&nbsp;</span>
+
+		<div id="transition-wrap" class="panel panel-aqua">
+			<select class='form-control' name="transition" id="transition"
+				ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top" title="Transizione">
+				<option value="">Dissolvenza</option>
+			</select>
+		</div>
+
+		<span class="space">&nbsp;</span>
+
+		<button class="btn btn-circle btn-black" data-toggle="tooltip" data-placement="top" title="Dissolvi a nero" ng-disabled="!isOpen()" ng-click="fadeToColor('black')"><span class="glyphicon glyphicon-lamp"></span></button>
+
+		<button class="btn btn-circle btn-white" data-toggle="tooltip" data-placement="top" title="Dissolvi a bianco" ng-disabled="!isOpen()" ng-click="fadeToColor('white')"><span class="glyphicon glyphicon-lamp"></span></button>
+
+		<span class="space">&nbsp;</span>
+
+		<div id="time-wrap" class="panel panel-gray">
+			<input class='form-control' type="number" name="transition" id="transition"
+				ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top"
+				title="Tempo di transizione"  ng-model="transitionTime"
+			/>
+		</div>
+
+		<span class="space">&nbsp;</span>
+
+		<button class="btn btn-circle btn-gold" data-toggle="tooltip" data-placement="top" title="Zoom" ng-disabled="!isOpen()" ng-click=""><span class="glyphicon glyphicon-search"></span></button>
+
+		<div id="coordinate-wrap" class="panel panel-gold">
+			<div class="input-group">
+				<input class='form-control' type="number" name="transition" id="transition"
+					ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top"
+					title="X"  ng-model="xCoord"
+				/>
+				<span class="input-group-addon">-</span>
+				<input class='form-control' type="number" name="transition" id="transition"
+					ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top"
+					title="Y"  ng-model="yCoord"
+				/>
+			</div>
+		</div>
+
+		<div id="zoom-wrap" class="panel panel-gold">
+			<div class="input-group">
+				<input class='form-control' type="number" name="transition" id="transition"
+					ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top"
+					title="Percentuale zoom"  ng-model="transitionTime"
+				/>
+				<span class="input-group-addon">%</span>
+			</div>
+
+		</div>
+
 	</div>
 
 	<div id="preview">

@@ -53,6 +53,26 @@
 	width: 3em;
 }
 
+#transition-wrap,
+#time-wrap,
+#coordinate-wrap,
+#zoom-wrap {
+	display: inline-block;
+
+	width: 150px;
+
+	padding: 0.5em;
+	margin: 0;
+
+	vertical-align: middle;
+}
+#time-wrap {
+	width: 100px;
+}
+#coordinate-wrap {
+	width: 200px;
+}
+
 #preview {
 	position: fixed;
 	bottom: 60px;
@@ -145,4 +165,59 @@
 	color: white;
 	border: 1px solid #bababa;
 	border-bottom-width: 4px;
+}
+
+.btn-white {
+	background-color: #fff;
+	color: black;
+	border: 1px solid #f0f0f0;
+	border-bottom-width: 4px;
+}
+.btn-black {
+	background-color: #000;
+	color: white;
+	border: 1px solid #121212;
+	border-bottom-width: 4px;
+}
+.btn-white:hover,
+.btn-black:hover {
+	color: #dadada;
+	border-bottom-width: 1px;
+}
+
+/** panels **/
+
+.panel-aqua { border-color: rgb(16, 156, 126); }
+.panel-aqua .panel-heading {
+	background-color: rgb(16, 156, 126);
+	color: white;
+}
+.panel-aqua .panel-body,
+.panel-aqua .panel-body p,
+.panel-aqua .panel-body h2 {
+	color: rgb(87, 181, 138);
+}
+.panel-aqua .panel-heading a { color: white; }
+.panel-aqua .panel-heading a:hover { color: rgb(127,255,197); }
+
+.panel-gold { border-color: rgb(255,158,82); }
+.panel-gold .panel-heading {
+	background-color: rgb(255,184,95);
+	color: white;
+}
+.panel-gold,
+.panel-gold p,
+.panel-gold h2 {
+	color: rgb(255,184,95);
+}
+
+.panel-gray { border-color: #bababa; }
+.panel-gray .panel-heading {
+	background-color: #999999;
+	color: white;
+}
+.panel-gray,
+.panel-gray p,
+.panel-gray h2 {
+	color: #323232;
 }

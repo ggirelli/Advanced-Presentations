@@ -21,7 +21,12 @@ angular.module('advanced-presentations', ['ngAnimate'])
 			$scope.indexList = [];
 
 			$scope.currentIndex = -1;
-			$scope.currentZoom = 1;
+
+			$scope.transitionTime = 500;
+
+			$scope.xCoord = 0;
+			$scope.yCoord = 0;
+			$scope.currentZoom = 100;
 
 			/**
 			 * Whether the slider is open
@@ -93,10 +98,18 @@ angular.module('advanced-presentations', ['ngAnimate'])
 					$scope.$broadcast('CHANGE_SLIDE',
 						{
 							index : i,
-							image : $scope.imageList[i]
+							image : $scope.imageList[i],
+							time : $scope.transitionTime
 						}
 					);
 				}
+			};
+
+			$scope.fadeToColor = function (color) {
+				$scope.$broadcast('FADE_COLOR', {
+					time : $scope.transitionTime,
+					color : color
+				});
 			};
 
 		}

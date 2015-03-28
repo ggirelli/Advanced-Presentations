@@ -13,12 +13,32 @@
 	<script src="vendor/js/bootstrap.min.js"></script>
 	<script src="vendor/js/angular.js"></script>
 	<script src="vendor/js/angular-animate.min.js"></script>
+
+	<style type="text/css">
+
+		html, body {
+			-webkit-transition: all linear {{transitionTime}}s;
+			transition: all linear {{transitionTime}}s;
+		}
+
+		.slider.previous.ng-hide,
+		.slider.current {
+			-webkit-transition: all linear {{transitionTime}}s;
+			transition: all linear {{transitionTime}}s;
+		}
+
+		.slider.previous,
+		.slider.current.ng-hide {
+			-webkit-transition: all linear 0s;
+			transition: all linear 0s;
+		}
+
+	</style>
 </head>
-<body>
+<body style="background-color: {{defaultBgColor}}">
 	
-	<div id="slider" style="background-image: url('{{currentImage}}');"></div>
-		
-	<!--<img ng-if="0 <= currentIndex" class="current slide" src="{{currentImage}}" alt="{{currentImage}}" />
+	<div class="slider current" style="background-image: url('{{currentImage}}');" ng-show="!faded && !changing"></div>
+	<div class="slider previous" style="background-image: url('{{previousImage}}');" ng-show="changing"></div>
 
 	<!-- after everything loaded -->
 	<script src="js/slider.js"></script>
