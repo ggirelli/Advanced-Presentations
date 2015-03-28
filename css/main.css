@@ -103,6 +103,16 @@
 	vertical-align: middle;
 }
 
+.circle {
+	position: fixed;
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	border: 2px solid red;
+	background: transparent;
+}
+
 /** buttons **/
 
 .btn {

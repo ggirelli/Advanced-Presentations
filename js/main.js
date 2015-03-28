@@ -24,8 +24,16 @@ angular.module('advanced-presentations', ['ngAnimate'])
 
 			$scope.transitionTime = 500;
 
-			$scope.xCoord = 0;
-			$scope.yCoord = 0;
+			$scope.coords = {
+				x : 0,
+				y : 0
+			};
+			$scope.tmpCoords = $scope.coords;
+			$scope.tmpPointerCoords = $scope.coords;
+			$scope.pointerCoords = {
+				x : -10,
+				y : -10
+			};
 			$scope.currentZoom = 100;
 
 			/**
@@ -50,7 +58,7 @@ angular.module('advanced-presentations', ['ngAnimate'])
 			$scope.close = function () {
 				$scope.opened = false;
 				$scope.currentIndex = -1;
-				$scope.currentZoom = 0;
+				$scope.currentZoom = 100;
 				$scope.slider.close();
 			};
 
@@ -79,6 +87,7 @@ angular.module('advanced-presentations', ['ngAnimate'])
 				if ( 0 <= $scope.indexList.indexOf(i) ) {
 					$scope.currentIndex = i;
 					$scope.sendToSlider(i);
+					$scope.resetPointer();
 				}
 			};
 
@@ -90,6 +99,7 @@ angular.module('advanced-presentations', ['ngAnimate'])
 				if ( 0 <= $scope.indexList.indexOf(i) ) {
 					$scope.currentIndex = i;
 					$scope.sendToSlider(i);
+					$scope.resetPointer();
 				}
 			};
 
@@ -110,6 +120,41 @@ angular.module('advanced-presentations', ['ngAnimate'])
 					time : $scope.transitionTime,
 					color : color
 				});
+			};
+
+			$scope.controlCoordinates = function (event) {
+				var offset = angular.element('#preview-image').offset();
+				var width = angular.element('#preview-image').width();
+				var height = angular.element('#preview-image').height();
+				$scope.tmpCoords = {
+					x : parseFloat(((event.pageX - offset.left) / width).toFixed(3)),
+					y : parseFloat(((event.pageY - offset.top) / height).toFixed(3))
+				}
+				$scope.tmpPointerCoords = {
+					x : event.pageX,
+					y : event.pageY
+				}
+			};
+
+			$scope.registerCoordinates = function () {
+				$scope.coords = $scope.tmpCoords;
+				$scope.pointerCoords = $scope.tmpPointerCoords;
+			};
+
+			$scope.resetPointer = function () {
+				$scope.pointerCoords = {
+					x : -10,
+					y : -10
+				};
+			};
+
+			$scope.zoom = function () {
+				$scope.$broadcast('ZOOM', {
+					x : $scope.coords.x,
+					y : $scope.coords.y,
+					zoom : $scope.currentZoom,
+					time : $scope.transitionTime
+				})
 			};
 
 		}

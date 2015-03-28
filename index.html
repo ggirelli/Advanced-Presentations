@@ -67,18 +67,18 @@
 
 		<span class="space">&nbsp;</span>
 
-		<button class="btn btn-circle btn-gold" data-toggle="tooltip" data-placement="top" title="Zoom" ng-disabled="!isOpen()" ng-click=""><span class="glyphicon glyphicon-search"></span></button>
+		<button class="btn btn-circle btn-gold" data-toggle="tooltip" data-placement="top" title="Zoom" ng-disabled="!isOpen()" ng-click="zoom()"><span class="glyphicon glyphicon-search"></span></button>
 
 		<div id="coordinate-wrap" class="panel panel-gold">
 			<div class="input-group">
 				<input class='form-control' type="number" name="transition" id="transition"
 					ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top"
-					title="X"  ng-model="xCoord"
+					title="X"  ng-model="coords.x"
 				/>
 				<span class="input-group-addon">-</span>
 				<input class='form-control' type="number" name="transition" id="transition"
 					ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top"
-					title="Y"  ng-model="yCoord"
+					title="Y"  ng-model="coords.y"
 				/>
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 			<div class="input-group">
 				<input class='form-control' type="number" name="transition" id="transition"
 					ng-disabled="!isOpen()" data-toggle="tooltip" data-placement="top"
-					title="Percentuale zoom"  ng-model="transitionTime"
+					title="Percentuale zoom"  ng-model="currentZoom"
 				/>
 				<span class="input-group-addon">%</span>
 			</div>
@@ -97,8 +97,10 @@
 	</div>
 
 	<div id="preview">
-		<img src="{{imageList[currentIndex]}}" alt="{{imageList[currentIndex]}}" />
+		<img id="preview-image" style="display: block;" src="{{imageList[currentIndex]}}" alt="{{imageList[currentIndex]}}" ng-mousemove="controlCoordinates($event)" ng-click="registerCoordinates()" />
 	</div>
+
+	<div class="circle" style="top: {{pointerCoords.y}}px; left: {{pointerCoords.x}}px;"></div>
 
 	<!-- after everything loaded -->
 	<script src="js/main.js"></script>
