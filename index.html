@@ -18,7 +18,7 @@
 	<div id="left-bar">
 		
 		<div ng-repeat="index in indexList" class="wrap">
-			<a href="" ng-click="setSlide(index)"><img src="{{imageList[index]}}" alt="{{imageList[index]}}" title="#{{index+1}}" class="thumbnail" /></a>
+			<a href="" ng-click="setSlide(index)"><img src="{{imageList[index]}}" alt="{{imageList[index]}}" title="#{{index+1}}" class="thumbnail" ng-Class="{'active':index==currentIndex}" /></a>
 		</div>
 
 	</div>
@@ -34,7 +34,10 @@
 
 		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine precedente" ng-disabled="!isOpen()" ng-click="setSlide(currentIndex-1)"><span class="glyphicon glyphicon-chevron-left"></span></button>
 
-		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine attuale" ng-disabled="!isOpen()" ng-click="">{{currentIndex}}</button>
+		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Immagine attuale" ng-disabled="!isOpen()" ng-click="">
+			<span ng-if="currentIndex < 0">#</span>
+			<span ng-if="currentIndex >= 0">{{currentIndex}}</span>
+		</button>
 
 		<button class="btn btn-circle btn-aqua" data-toggle="tooltip" data-placement="top" title="Prossima immagine" ng-disabled="!isOpen()" ng-click="setSlide(currentIndex+1)"><span class="glyphicon glyphicon-chevron-right"></span></button>
 

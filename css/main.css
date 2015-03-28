@@ -31,6 +31,10 @@
 	max-height: 175px;
 }
 
+#left-bar .active {
+	background-color: rgb(232, 78, 48);
+}
+
 #bottom-bar {
 	position: fixed;
 	bottom: 0;
