@@ -1,0 +1,40 @@
+html, body {
+	position: relative;
+	
+	padding: 0px;
+	margin: 0px;
+
+	height: 100%;
+	width: 100%;
+
+	background: black;
+
+	vertical-align: middle;
+}
+
+#slider {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+}
+
+.slide.current {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	margin: auto;
+
+	max-width: 100%;
+	max-height: 100%;
+
+	vertical-align: middle;
+}

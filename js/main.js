@@ -1,9 +1,9 @@
 // ANGULAR APP \\
 
-angular.module('advPre', ['ngAnimate'])
+angular.module('advanced-presentations', ['ngAnimate'])
 
 	.controller('interfaceController',
-		function($scope, $http) {
+		function($scope, $http, $window) {
 
 			$('[data-toggle="tooltip"]').tooltip()
 
@@ -35,7 +35,7 @@ angular.module('advPre', ['ngAnimate'])
 			 */
 			$scope.open = function () {
 				$scope.opened = true;
-			    $scope.slider = window.open('slider.html','slider','modal=yes,alwaysRaised=yes,location=0,menubar=0,resizable=0,fullscreen=1');
+			    $scope.slider = $window.open('slider.html','slider','modal=yes,alwaysRaised=yes,location=0,menubar=0,resizable=0,fullscreen=1');
 			};
 
 			/**
@@ -73,6 +73,7 @@ angular.module('advPre', ['ngAnimate'])
 			$scope.setSlide = function (i) {
 				if ( 0 <= $scope.indexList.indexOf(i) ) {
 					$scope.currentIndex = i;
+					$scope.sendToSlider(i);
 				}
 			};
 
@@ -80,11 +81,23 @@ angular.module('advPre', ['ngAnimate'])
 			 * Sets the current slide based on user-input
 			 */
 			$scope.promptSetSlide = function () {
-				i = parseInt(prompt('Inserisci il numero della slide:'))
+				var i = parseInt(prompt('Inserisci il numero della slide:'))-1;
 				if ( 0 <= $scope.indexList.indexOf(i) ) {
 					$scope.currentIndex = i;
+					$scope.sendToSlider(i);
 				}
-			}
+			};
+
+			$scope.sendToSlider = function (i) {
+				if ( 0 <= $scope.indexList.indexOf(i) ) {
+					$scope.$broadcast('CHANGE_SLIDE',
+						{
+							index : i,
+							image : $scope.imageList[i]
+						}
+					);
+				}
+			};
 
 		}
 	);
